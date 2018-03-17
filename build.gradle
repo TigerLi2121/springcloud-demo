@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "https://oss.sonatype.org/content/groups/public/" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'idea'
+
+    group = 'com.mm.springcloud'
+    version = '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.SR2'
+        }
+    }
+
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "https://oss.sonatype.org/content/groups/public/" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'org.springframework.cloud:spring-cloud-starter-config'
+        compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+}
