@@ -16,4 +16,9 @@ public class ConsumerController {
     public String index(@PathVariable("name") String name){
         return helloRemote.hello(name);
     }
+
+    @GetMapping("/hello2/{name}")
+    public String index2(@PathVariable("name") String name){
+        return helloRemote.hello2(name);
+    }
 }
