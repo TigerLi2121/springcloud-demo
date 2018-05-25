@@ -3,4 +3,5 @@ include 'springcloud-eureka'
 include 'springcloud-producer'
 include 'springcloud-consumer'
 include 'springcloud-entity'
+include 'springcloud-zuul'
 
