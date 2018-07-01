@@ -1,24 +1,25 @@
 buildscript {
     repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        maven { url "https://oss.sonatype.org/content/groups/public/" }
-        maven { url "https://repo.spring.io/libs-milestone/" }
-        maven { url "https://repo.spring.io/libs-snapshot" }
         jcenter()
-        mavenCentral()
     }
     ext {
-        springBootVersion = "1.5.9.RELEASE"
+        springBootVersion = "2.0.3.RELEASE"
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath(
+                "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+                'se.transmode.gradle:gradle-docker:1.2'
+        )
     }
 }
 
 allprojects {
     apply plugin: 'java'
-    apply plugin: 'spring-boot'
     apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'docker'
+    apply plugin: 'application'
 
     group = 'com.mm.springcloud'
     version = '1.0-SNAPSHOT'
@@ -26,23 +27,27 @@ allprojects {
 
     dependencyManagement {
         imports {
-            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Edgware.SR3'
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.RELEASE'
         }
     }
 
     repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        maven { url "https://oss.sonatype.org/content/groups/public/" }
-        maven { url "https://repo.spring.io/libs-milestone/" }
-        maven { url "https://repo.spring.io/libs-snapshot" }
-        jcenter()
         mavenCentral()
     }
 
     dependencies {
-        compile 'org.springframework.cloud:spring-cloud-starter-config'
-        compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-        testCompile 'org.springframework.boot:spring-boot-starter-test'
+        compile (
+                'org.springframework.cloud:spring-cloud-starter-config',
+                'org.projectlombok:lombok',
+                'org.springframework.boot:spring-boot-starter-log4j2',
+        )
+        runtime('org.springframework.boot:spring-boot-devtools')
+        testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    }
+
+    configurations {
+        providedRuntime
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
 
 }
