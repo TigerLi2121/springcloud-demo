@@ -1,24 +1,32 @@
 package com.mm.controller;
 
-import com.mm.remote.HelloRemote;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.mm.pojo.User;
+import com.mm.service.HelloRemoteService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
+@Slf4j
 @RestController
 public class ConsumerController {
 
-    @Autowired
-    private HelloRemote helloRemote;
+    @Resource
+    private HelloRemoteService helloRemoteService;
 
-    @GetMapping("/hello/{name}")
-    public String index(@PathVariable("name") String name){
-        return helloRemote.hello(name);
+    @GetMapping("/hello1")
+    public String hello1(@RequestParam("name") String name) {
+        return helloRemoteService.hello1(name);
     }
 
     @GetMapping("/hello2/{name}")
-    public String index2(@PathVariable("name") String name){
-        return helloRemote.hello2(name);
+    public String hello2(@PathVariable("name") String name) {
+        return helloRemoteService.hello2(name);
+    }
+
+    @PostMapping("/hello3")
+    public User hello3(@RequestBody User user) {
+        log.info("user user:{}", user);
+        return helloRemoteService.hello3(user);
     }
 }

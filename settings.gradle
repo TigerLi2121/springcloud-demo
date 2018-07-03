@@ -2,6 +2,6 @@ rootProject.name = 'springcloud-demo'
 include 'springcloud-server'
 include 'springcloud-producer'
 include 'springcloud-consumer'
-include 'springcloud-entity'
 include 'springcloud-gateway'
+include 'springcloud-api'
 
