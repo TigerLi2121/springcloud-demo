@@ -36,14 +36,15 @@ allprojects {
     }
 
     dependencies {
-        compile (
+        implementation (
                 'org.springframework.boot:spring-boot-starter-web',
                 'org.springframework.boot:spring-boot-starter-log4j2',
                 'org.springframework.boot:spring-boot-starter-actuator',
-                'org.projectlombok:lombok'
+                'org.projectlombok:lombok',
+                'com.alibaba:fastjson:1.2.58'
         )
         runtime('org.springframework.boot:spring-boot-devtools')
-        testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+        testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     }
 
     configurations {
