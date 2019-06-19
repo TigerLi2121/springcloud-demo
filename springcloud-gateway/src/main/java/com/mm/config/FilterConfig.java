@@ -59,6 +59,7 @@ public class FilterConfig {
             exchange.getAttributes().put(CACHE_GATEWAY_CONTEXT, gatewayContext);
             HttpHeaders headers = request.getHeaders();
             MediaType contentType = headers.getContentType();
+            log.info("[GatewayContext]ContentType:{}", contentType);
             if (headers.getContentLength() > 0) {
                 if (MediaType.APPLICATION_JSON.equals(contentType) || MediaType.APPLICATION_JSON_UTF8.equals(contentType)) {
                     return readBody(exchange, chain, gatewayContext);
