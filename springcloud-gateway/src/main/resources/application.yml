@@ -15,8 +15,12 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: test_route
+      - id: route1
         uri: https://www.baidu.com/
         predicates:
         - Path=/**
+      - id: route1
+        uri: https://www.hao123.com/
+        predicates:
+          - Path=/**
 
