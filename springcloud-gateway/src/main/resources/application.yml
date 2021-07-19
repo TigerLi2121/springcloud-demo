@@ -27,7 +27,7 @@ spring:
       - id: route1
         uri: https://www.baidu.com/
         predicates:
-        - Path=/**
+          - Path=/**
       - id: route1
         uri: https://www.hao123.com/
         predicates:

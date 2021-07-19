@@ -68,7 +68,7 @@ public class FilterConfig {
                     return readFormData(exchange, chain, gatewayContext);
                 }
             }
-            log.debug("[GatewayContext]ContentType:{},Gateway context is set with {}", contentType, gatewayContext);
+            log.info("[GatewayContext]ContentType:{},Gateway context is set with {}", contentType, gatewayContext);
             return chain.filter(exchange);
         };
     }
@@ -110,7 +110,7 @@ public class FilterConfig {
         return exchange.getFormData()
                 .doOnNext(multiValueMap -> {
                     gatewayContext.setFormData(multiValueMap);
-                    log.debug("[GatewayContext]Read FormData Success");
+                    log.info("[GatewayContext]Read FormData Success");
                 })
                 .then(Mono.defer(() -> {
                     Charset charset = headers.getContentType().getCharset();
@@ -167,7 +167,7 @@ public class FilterConfig {
                      */
                     BodyInserter<String, ReactiveHttpOutputMessage> bodyInserter = BodyInserters.fromObject(formDataBodyString);
                     CachedBodyOutputMessage cachedBodyOutputMessage = new CachedBodyOutputMessage(exchange, httpHeaders);
-                    log.debug("[GatewayContext]Rewrite Form Data :{}", formDataBodyString);
+                    log.info("[GatewayContext]Rewrite Form Data :{}", formDataBodyString);
                     return bodyInserter.insert(cachedBodyOutputMessage, new BodyInserterContext())
                             .then(Mono.defer(() -> {
                                 ServerHttpRequestDecorator decorator = new ServerHttpRequestDecorator(
@@ -213,7 +213,7 @@ public class FilterConfig {
                             .bodyToMono(String.class)
                             .doOnNext(objectValue -> {
                                 gatewayContext.setRequestBody(objectValue);
-                                log.debug("[GatewayContext]Read JsonBody Success");
+                                log.info("[GatewayContext]Read JsonBody Success");
                             }).then(chain.filter(mutatedExchange));
                 });
     }
