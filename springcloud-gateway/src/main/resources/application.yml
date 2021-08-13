@@ -28,8 +28,6 @@ spring:
         uri: https://www.baidu.com/
         predicates:
           - Path=/**
-      - id: route1
-        uri: https://www.hao123.com/
-        predicates:
-          - Path=/**
-
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
