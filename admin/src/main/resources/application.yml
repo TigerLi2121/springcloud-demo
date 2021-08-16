@@ -1,16 +1,21 @@
+server:
+  port: 8001
+
 spring:
   application:
     name: admin
-
-server:
-  port: 8001
-  servlet:
-    context-path: /admin
+  security:
+    user:
+      name: admin
+      password: admin
 
 eureka:
   instance:
     prefer-ip-address: true # 注册时使用ip而不是主机名
     lease-renewal-interval-in-seconds: 10
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     registry-fetch-interval-seconds: 5
     service-url:

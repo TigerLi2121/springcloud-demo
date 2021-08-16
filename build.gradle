@@ -29,7 +29,7 @@ allprojects {
     dependencyManagement {
         imports {
             mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'
-            mavenBom "de.codecentric:spring-boot-admin-dependencies:2.4.3"
+            mavenBom "de.codecentric:spring-boot-admin-dependencies:2.3.1"
         }
     }
 
