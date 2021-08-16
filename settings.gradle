@@ -1,7 +1,8 @@
 rootProject.name = 'springcloud-demo'
-include 'springcloud-server'
-include 'springcloud-producer'
-include 'springcloud-consumer'
-include 'springcloud-gateway'
-include 'springcloud-api'
+include 'eureka'
+include 'producer'
+include 'consumer'
+include 'gateway'
+include 'api'
+include 'admin'
 

@@ -1,0 +1,8 @@
+dependencies {
+    implementation(
+            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
+            'org.springframework.cloud:spring-cloud-starter-openfeign',
+            'de.codecentric:spring-boot-admin-starter-client',
+            project(':api')
+    )
+}

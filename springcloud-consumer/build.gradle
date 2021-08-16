@@ -1,7 +1,0 @@
-dependencies {
-    compile (
-            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
-            'org.springframework.cloud:spring-cloud-starter-openfeign'
-    )
-    compile project (':springcloud-api')
-}
