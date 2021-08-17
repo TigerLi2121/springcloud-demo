@@ -1,6 +1,6 @@
 package com.mm.controller;
 
-import com.mm.pojo.User;
+import com.mm.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +24,8 @@ public class ProducerController {
     }
 
     @RequestMapping("/hello3")
-    public User hello3(@RequestBody User user) {
-        log.info("hello3 user:{}", user);
-        return user;
+    public UserDto hello3(@RequestBody UserDto userDto) {
+        log.info("hello3 user:{}", userDto);
+        return userDto;
     }
 }

@@ -1,6 +1,6 @@
 package com.mm.controller;
 
-import com.mm.pojo.User;
+import com.mm.dto.UserDto;
 import com.mm.service.HelloRemoteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +30,8 @@ public class ConsumerController {
     }
 
     @PostMapping("/hello3")
-    public User hello3(@RequestBody User user) {
-        log.info("user user:{}", user);
-        return helloRemoteService.hello3(user);
+    public UserDto hello3(@RequestBody UserDto userDto) {
+        log.info("user user:{}", userDto);
+        return helloRemoteService.hello3(userDto);
     }
 }

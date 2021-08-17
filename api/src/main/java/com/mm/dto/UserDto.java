@@ -1,4 +1,4 @@
-package com.mm.pojo;
+package com.mm.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @date 2018/7/3
  */
 @Data
-public class User {
+public class UserDto {
 
     private Long id;
 

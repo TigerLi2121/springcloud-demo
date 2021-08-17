@@ -1,6 +1,6 @@
 package com.mm.controller;
 
-import com.mm.pojo.User;
+import com.mm.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,5 +16,5 @@ public interface HelloService {
     String hello2(@PathVariable("name") String name);
 
     @PostMapping("/hello3")
-    User hello3(@RequestBody User user);
+    UserDto hello3(@RequestBody UserDto userDto);
 }
