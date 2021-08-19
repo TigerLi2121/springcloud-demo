@@ -8,18 +8,13 @@ spring:
     user:
       name: admin
       password: admin
-
-eureka:
-  instance:
-    prefer-ip-address: true # 注册时使用ip而不是主机名
-    lease-renewal-interval-in-seconds: 10
-    metadata-map:
-      user.name: ${spring.security.user.name}
-      user.password: ${spring.security.user.password}
-  client:
-    registry-fetch-interval-seconds: 5
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.53.241.47:8848
+        metadata:
+          user.name: admin
+          user.password: admin
 
 management:
   endpoints:

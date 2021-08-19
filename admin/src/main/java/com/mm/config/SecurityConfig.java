@@ -37,6 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().and()
                 .csrf()
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .ignoringAntMatchers("/instances", "/actuator/**", adminContextPath + "/logout");
+                .ignoringAntMatchers("/instances", "/actuator/**");
     }
 }

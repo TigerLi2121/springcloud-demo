@@ -1,13 +1,16 @@
-package com.mm.controller;
+package com.mm.remote.service;
 
-import com.mm.dto.UserDto;
+import com.mm.remote.dto.UserDto;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * hello
+ *
  * @author lwl
  */
-public interface HelloService {
+@FeignClient(name = "producer", path = "/producer")
+public interface HelloRemoteService {
 
     @GetMapping("/hello1")
     String hello1(@RequestParam("name") String name);

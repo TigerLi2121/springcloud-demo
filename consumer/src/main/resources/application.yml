@@ -1,19 +1,18 @@
-spring:
-  application:
-    name: consumer
-
 server:
   port: 8803
   servlet:
     context-path: /consumer
 
-eureka:
-  instance:
-    hostname: localhost # 设置主机名
-    prefer-ip-address: true # 注册时使用ip而不是主机名
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.53.241.47:8848
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
 
 management:
   endpoints:

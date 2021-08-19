@@ -1,10 +1,18 @@
 server:
   port: 8002
+  servlet:
+    context-path: /
 
 spring:
   application:
     name: gateway
   cloud:
+    nacos:
+      discovery:
+        server-addr: 106.53.241.47:8848
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
     gateway:
       routes:
 #        - id: route1
@@ -17,14 +25,6 @@ spring:
             - Path=/**
 #          filters:
 #            - StripPrefix=1
-eureka:
-  instance:
-    prefer-ip-address: true # 注册时使用ip而不是主机名
-    lease-renewal-interval-in-seconds: 10
-  client:
-    registry-fetch-interval-seconds: 5
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
 
 management:
   endpoints:

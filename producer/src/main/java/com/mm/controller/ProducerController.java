@@ -1,6 +1,6 @@
 package com.mm.controller;
 
-import com.mm.dto.UserDto;
+import com.mm.remote.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

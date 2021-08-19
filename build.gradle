@@ -6,7 +6,7 @@ buildscript {
         }
     }
     ext {
-        springBootVersion = "2.3.12.RELEASE"
+        springBootVersion = "2.2.13.RELEASE"
     }
     dependencies {
         classpath(
@@ -28,7 +28,8 @@ allprojects {
 
     dependencyManagement {
         imports {
-            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR9'
+            mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.6.RELEASE'
             mavenBom "de.codecentric:spring-boot-admin-dependencies:2.3.1"
         }
     }

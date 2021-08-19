@@ -1,6 +1,6 @@
 dependencies {
     implementation(
-            'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
+            'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery',
             'de.codecentric:spring-boot-admin-starter-server',
             'org.springframework.boot:spring-boot-starter-security',
     )

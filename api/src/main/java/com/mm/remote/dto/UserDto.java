@@ -1,4 +1,4 @@
-package com.mm.dto;
+package com.mm.remote.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -6,8 +6,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
+ * user
+ *
  * @author lwl
- * @date 2018/7/3
  */
 @Data
 public class UserDto {

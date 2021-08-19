@@ -1,7 +1,7 @@
 package com.mm.controller;
 
-import com.mm.dto.UserDto;
-import com.mm.service.HelloRemoteService;
+import com.mm.remote.dto.UserDto;
+import com.mm.remote.service.HelloRemoteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * consumer
  *
- * @author lwlø
+ * @author lwl
  */
 @Slf4j
 @RestController

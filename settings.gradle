@@ -1,5 +1,4 @@
 rootProject.name = 'springcloud-demo'
-include 'eureka'
 include 'producer'
 include 'consumer'
 include 'gateway'
