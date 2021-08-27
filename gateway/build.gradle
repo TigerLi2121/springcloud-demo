@@ -1,6 +1,8 @@
 dependencies {
     implementation(
             'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery',
+            'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel',
+            'com.alibaba.cloud:spring-cloud-alibaba-sentinel-gateway',
             'org.springframework.cloud:spring-cloud-starter-gateway',
             'de.codecentric:spring-boot-admin-starter-client'
     )

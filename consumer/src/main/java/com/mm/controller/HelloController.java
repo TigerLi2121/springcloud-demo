@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
- * consumer
+ * hello
  *
  * @author lwl
  */
 @Slf4j
 @RestController
-public class ConsumerController {
+@RequestMapping("/hello")
+public class HelloController {
 
     @Resource
     private HelloRemoteService helloRemoteService;

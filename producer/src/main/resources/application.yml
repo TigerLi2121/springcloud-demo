@@ -13,6 +13,9 @@ spring:
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
+    sentinel:
+      transport:
+        dashboard: localhost:8080
 
 management:
   endpoints:

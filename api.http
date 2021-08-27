@@ -1,9 +1,13 @@
-GET http://localhost:8002/consumer/hello1?name=haha
+### gateway consumer
+GET http://localhost:8002/api/consumer/hello/hello1?name=haha
 
-###
-GET http://localhost:8803/consumer/hello1?name=haha
+### gateway producer
+GET http://localhost:8002/api/producer/hello/hello1?name=haha
 
-###
-GET http://localhost:8802/producer/hello1?name=haha
+### consumer
+GET http://localhost:8803/consumer/hello/hello1?name=haha
+
+### producer
+GET http://localhost:8802/producer/hello/hello1?name=haha
 
 ###

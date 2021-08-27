@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author lwl
  */
-@FeignClient(name = "producer", path = "/producer")
+@FeignClient(name = "producer", path = "/producer/hello")
 public interface HelloRemoteService {
 
     @GetMapping("/hello1")

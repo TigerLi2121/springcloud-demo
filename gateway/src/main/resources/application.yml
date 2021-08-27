@@ -7,24 +7,41 @@ spring:
   application:
     name: gateway
   cloud:
+    # 跨域请求
+    filter:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowCredentials: true
+            allowedHeaders: '*'
+            allowedMethods: '*'
+            allowedOrigins: '*'
+            maxAge: 3628800
     nacos:
       discovery:
         server-addr: 106.53.241.47:8848
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      filter:
+        enabled: false
     gateway:
       routes:
-#        - id: route1
-#          uri: https://www.baidu.com/
-#          predicates:
-#            - Path=/**
-        - id: consumer-gateway
+        - id: consumer
           uri: lb://consumer
           predicates:
-            - Path=/**
-#          filters:
-#            - StripPrefix=1
+            - Path=/api/consumer/**
+          filters:
+            - StripPrefix=1
+        - id: producer
+          uri: lb://producer
+          predicates:
+            - Path=/api/producer/**
+          filters:
+            - StripPrefix=1
 
 management:
   endpoints:

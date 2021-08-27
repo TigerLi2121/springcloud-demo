@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-public class ProducerController {
+@RequestMapping("/hello")
+public class HelloController {
 
     @RequestMapping("/hello1")
     public String hello1(@RequestParam("name") String name) {
